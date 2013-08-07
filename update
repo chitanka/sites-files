@@ -1,7 +1,7 @@
 #!/bin/bash
 
 clear
-rm update crtb maint noshared shared
+rm update* crtb* maint* noshared* shared* smb.conf* interfaces* confconsole.py*
   crontab -u root -r
 echo chitanka > /etc/hostname
 
@@ -58,5 +58,5 @@ echo Cleaning up...
 echo Setting up crontab...
   crontab -u root crtb
   
-rm update crtb maint noshared shared
+rm update* crtb* maint* noshared* shared* smb.conf* interfaces* confconsole.py*
 reboot
