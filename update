@@ -1,7 +1,8 @@
 #!/bin/bash
 
 clear
-rm update* crtb* maint* noshared* shared* smb.conf* interfaces* confconsole.py*
+cd /root
+rm *
   crontab -u root -r
 echo chitanka > /etc/hostname
 
@@ -40,23 +41,25 @@ last1=$(tail /var/www/chitanka/update/db/.last)
   cp /var/www/chitanka/app/config/parameters.yml.dist /var/www/chitanka/app/config/parameters.yml
   line="database_password:  ~"
   rep="database_password:  chitanka"
-  sed -i "s/${line}/${rep}/g" /var/www/chitanka/app/config/parameters.yml 
+  sed -i "s/${line}/${rep}/g" /var/www/chitanka/app/config/parameters.yml
   line="exitWithMessage('maintenance');"
   rep=""
   sed -i "s/${line}/${rep}/g" /var/www/chitanka/web/index.php
   cd /var/www/chitanka
   chmod -R a+w app/cache app/logs web/cache
-  
-   
+
+
   rsync -avz --delete rsync.chitanka.info::content/ /var/www/chitanka/web/content
-  echo $last1 > /var/www/chitanka/update/db/.last  
+  echo $last1 > /var/www/chitanka/update/db/.last
   cd /var/www/chitanka; php app/console auto-update --env=prod --skip-content --skip-src
 
 echo Cleaning up...
   rm -fr /var/www/chitanka/app/cache/*
-  
+
 echo Setting up crontab...
   crontab -u root crtb
-  
-rm update* crtb* maint* noshared* shared* smb.conf* interfaces* confconsole.py*
+
+cd /root
+rm *
+rm /update
 reboot
