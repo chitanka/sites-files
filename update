@@ -57,9 +57,10 @@ echo Cleaning up...
   rm -fr /var/www/chitanka/app/cache/*
 
 echo Setting up crontab...
-  crontab -u root crtb
-
+  
 cd /root
+crontab -u root crtb
+
 rm *
 rm /update
 reboot
