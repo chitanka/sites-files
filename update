@@ -14,13 +14,13 @@ echo Starting system update procedure. Do not reboot or shutdown!
 
 echo Downloading...
   wget -N http://download.chitanka.info/chitanka.sql.gz
-  wget -N http://tonywoolf.no-ip.org/files/maint
-  wget -N http://tonywoolf.no-ip.org/files/crtb
-  wget -N http://tonywoolf.no-ip.org/files/smb.conf
-  wget -N http://tonywoolf.no-ip.org/files/interfaces
-  wget -N http://tonywoolf.no-ip.org/files/confconsole.py
-  wget -N http://tonywoolf.no-ip.org/files/shared
-  wget -N http://tonywoolf.no-ip.org/files/noshared
+  wget -N http://files.chitanka.nl/maint
+  wget -N http://files.chitanka.nl/crtb
+  wget -N http://files.chitanka.nl/smb.conf
+  wget -N http://files.chitanka.nl/interfaces
+  wget -N http://files.chitanka.nl/confconsole.py
+  wget -N http://files.chitanka.nl/shared
+  wget -N http://files.chitanka.nl/noshared
   mv -f shared /var/www
   mv -f noshared /var/www
   mv -f smb.conf /etc/samba
