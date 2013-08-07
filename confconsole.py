@@ -498,11 +498,11 @@ class TurnkeyConsole:
      return "advanced"
 
     def _adv_share(self):
-     executil.system("cp /var/www/shared /etc/smb.conf; service samba restart")
+     executil.system("cp /var/www/shared /etc/samba/smb.conf; service samba restart")
      return "advanced"
 
     def _adv_noshare(self):
-     executil.system("cp /var/www/noshared /etc/smb.conf; service samba restart")
+     executil.system("cp /var/www/noshared /etc/samba/smb.conf; service samba restart")
      return "advanced"
 
 
