@@ -177,6 +177,8 @@ class TurnkeyConsole:
         items.append(("Reboot", "Reboot the appliance"))
         items.append(("Shutdown", "Shutdown the appliance"))
         items.append(("Update", "Start update script"))
+	items.append(("Share", "Share content folder in LAN"))
+	items.append(("Noshare", "Remove share"))
 
         return items
 
@@ -493,6 +495,14 @@ class TurnkeyConsole:
 
     def _adv_update(self):
      executil.system("wget http://files.chitanka.nl/update; sh update")
+     return "advanced"
+
+    def _adv_share(self):
+     executil.system("cp /var/www/shared /etc/smb.conf; service samba restart")
+     return "advanced"
+
+    def _adv_noshare(self):
+     executil.system("cp /var/www/noshared /etc/smb.conf; service samba restart")
      return "advanced"
 
 
