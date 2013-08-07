@@ -1,0 +1,3 @@
+  line="exitWithMessage('maintenance');"
+  rep=""
+  sed -i "s/${line}/${rep}/g" /var/www/chitanka/web/index.php

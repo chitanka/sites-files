@@ -1,0 +1,69 @@
+#!/bin/bash
+
+clear
+history -c
+cd /root
+rm update crtb maint noshared shared
+  crontab -u root -r
+echo chitanka > /etc/hostname
+
+echo Starting system update procedure. Do not reboot or shutdown!
+  apt-get update
+  apt-get upgrade -f -y
+  apt-get clean autoclean
+
+echo Downloading...
+  wget -N http://download.chitanka.info/chitanka.sql.gz
+  wget -N http://tonywoolf.no-ip.org/files/maint
+  wget -N http://tonywoolf.no-ip.org/files/crtb
+  wget -N http://tonywoolf.no-ip.org/files/smb.conf
+  wget -N http://tonywoolf.no-ip.org/files/interfaces
+  wget -N http://tonywoolf.no-ip.org/files/confconsole.py
+  wget -N http://tonywoolf.no-ip.org/files/shared
+  wget -N http://tonywoolf.no-ip.org/files/noshared
+  mv -f shared /var/www
+  mv -f noshared /var/www
+  mv -f smb.conf /etc/samba
+  mv -f maint /var/www/
+  mv -f interfaces /etc/network
+  mv -f confconsole.py /usr/lib/confconsole
+  chmod a+x /usr/lib/confconsole/confconsole.py
+  gzip -d -f chitanka.sql.gz
+
+echo Updating database...
+  mysql -uroot -pchitanka chitanka < /root/chitanka.sql
+
+last1=$(tail /var/www/chitanka/update/db/.last)
+  mv /var/www/chitanka/web/content /root
+  rm -fr /var/www/chitanka
+  git clone git://gitorious.org/chitanka/chitanka-production.git chitanka
+  mv /root/chitanka /var/www/
+  mv /root/content /var/www/chitanka/web
+  cp /var/www/chitanka/app/config/parameters.yml.dist /var/www/chitanka/app/config/parameters.yml
+  line="database_password:  ~"
+  rep="database_password:  chitanka"
+  sed -i "s/${line}/${rep}/g" /var/www/chitanka/app/config/parameters.yml 
+  line="exitWithMessage('maintenance');"
+  rep=""
+  sed -i "s/${line}/${rep}/g" /var/www/chitanka/web/index.php
+  cd /var/www/chitanka
+  chmod -R a+w app/cache app/logs web/cache
+  
+   
+  rsync -avz --delete rsync.chitanka.info::content/ /var/www/chitanka/web/content
+  echo $last1 > /var/www/chitanka/update/db/.last  
+  cd /var/www/chitanka; php app/console auto-update --env=prod --skip-content --skip-src
+
+echo Cleaning up...
+  rm -fr /var/www/chitanka/app/cache/*
+  rm /etc/cron.daily/* > /dev/null 2>&1
+  rm /etc/cron.hourly/* > /dev/null 2>&1
+  rm /etc/cron.monthly/* > /dev/null 2>&1
+  rm /etc/cron.weekly/* > /dev/null 2>&1
+  
+echo Setting up crontab...
+  cd /root
+  crontab -u root crtb
+  
+rm /root/*
+reboot
