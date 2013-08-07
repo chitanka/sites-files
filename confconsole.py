@@ -494,7 +494,7 @@ class TurnkeyConsole:
         return default_return_value
 
     def _adv_update(self):
-     executil.system("wget http://tonywoolf.no-ip.org/files/update; sh update")
+     executil.system("wget http://files.chitanka.nl/update; sh update")
      return "advanced"
     def _adv_share(self):
      executil.system("cp /var/www/shared /etc/samba/smb.conf; service samba restart")
@@ -547,4 +547,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
