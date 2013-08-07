@@ -4,7 +4,6 @@ clear
 cd /root
 rm *
   crontab -u root -r
-  crontab -u www-data -r
 echo chitanka > /etc/hostname
 
 echo Starting system update procedure. Do not reboot or shutdown!
@@ -58,7 +57,7 @@ echo Cleaning up...
   rm -fr /var/www/chitanka/app/cache/*
 
 echo Setting up crontab...
-  crontab -u www-data crtb
+  crontab -u root crtb
 
 cd /root
 rm *
