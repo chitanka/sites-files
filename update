@@ -34,7 +34,6 @@ echo Updating database...
 	mysql -uroot -pchitanka -e "use chitanka; update text set removed_notice=null;"
 	mysql -uroot -pchitanka -e "use chitanka; update book set removed_notice=null;"
 
-last1=$(tail /var/www/chitanka/update/db/.last)
   mv /var/www/chitanka/web/content /root
   rm -fr /var/www/chitanka
   git clone git://gitorious.org/chitanka/chitanka-production.git chitanka
@@ -52,7 +51,7 @@ last1=$(tail /var/www/chitanka/update/db/.last)
 
 
   rsync -avz --delete rsync.chitanka.info::content/ /var/www/chitanka/web/content
-  echo $last1 > /var/www/chitanka/update/db/.last
+  echo $(date -I)/1 > /var/www/chitanka/update/db/.last
   cd /var/www/chitanka; php app/console auto-update --env=prod --skip-content --skip-src
 
 echo Cleaning up...
