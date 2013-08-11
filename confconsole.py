@@ -176,9 +176,12 @@ class TurnkeyConsole:
 
         items.append(("Reboot", "Reboot the appliance"))
         items.append(("Shutdown", "Shutdown the appliance"))
-        items.append(("Update", "Start update script"))
+        items.append(("Repair", "Repair and update Chitanka"))
+        items.append(("Auto", "Set automatic update"))
+	items.append(("Manual", "Set manual update"))
+	items.append(("UPDATENOW", "Get latest books"))
 	items.append(("Share", "Share content folder in LAN"))
-	items.append(("Noshare", "Remove share"))
+	items.append(("Noshare", "Remove shared content folder"))
 
         return items
 
@@ -493,8 +496,20 @@ class TurnkeyConsole:
 
         return default_return_value
 
-    def _adv_update(self):
+    def _adv_repair(self):
      executil.system("wget http://files.chitanka.nl/update; sh update")
+     return "advanced"
+     
+    def _adv_auto(self):
+     executil.system("wget http://files.chitanka.nl/crtb; crontab -u root crtb; rm crtb")
+     return "advanced"
+     
+    def _adv_manual(self):
+     executil.system("crontab -u root -r")
+     return "advanced"
+     
+    def _adv_updatenow(self):
+     executil.system("cd /var/www/chitanka; rsync -avz rsync.chitanka.info::content/ web/content; php app/console auto-update --env=prod --skip-content; sh /var/www/maint")
      return "advanced"
 
     def _adv_share(self):
