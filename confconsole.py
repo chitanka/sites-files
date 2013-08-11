@@ -132,7 +132,7 @@ class TurnkeyConsole:
         self.height = 20
 
         self.console = Console(title, self.width, self.height)
-        self.appname = "TurnKey Linux %s" % netinfo.get_hostname().upper()
+        self.appname = "%s" % netinfo.get_hostname().upper()
 
         self.installer = Installer(path='/usr/bin/di-live')
 
