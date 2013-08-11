@@ -509,15 +509,15 @@ class TurnkeyConsole:
      return "advanced"
      
     def _adv_updatenow(self):
-     executil.system("cd /var/www/chitanka; rsync -avz rsync.chitanka.info::content/ web/content; php app/console auto-update --env=prod --skip-content; sh /var/www/maint")
+     executil.system("echo UPDATING...; cd /var/www/chitanka; rsync -avz rsync.chitanka.info::content/ web/content > /var/www/chitanka/web/manual.log; php app/console auto-update --env=prod --skip-content >> /var/www/chitanka/web/manual.log; sh /var/www/maint")
      return "advanced"
 
     def _adv_share(self):
-     executil.system("cp /var/www/shared /etc/samba/smb.conf; service samba restart")
+     executil.system("echo SHARING...; cp /var/www/shared /etc/samba/smb.conf > /dev/null 2>&1; service samba restart > /dev/null 2>&1")
      return "advanced"
 
     def _adv_noshare(self):
-     executil.system("cp /var/www/noshared /etc/samba/smb.conf; service samba restart")
+     executil.system("echo REMOVING SHARE...; cp /var/www/noshared /etc/samba/smb.conf > /dev/null 2>&1; service samba restart > /dev/null 2>&1")
      return "advanced"
 
 
