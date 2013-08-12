@@ -54,9 +54,6 @@ echo Updating database...
   echo $(date -I)/1 > /var/www/chitanka/update/db/.last
   cd /var/www/chitanka; php app/console auto-update --env=prod --skip-content --skip-src
 
-echo Cleaning up...
-  rm -fr /var/www/chitanka/app/cache/*
-
 echo Setting up crontab...
   
 cd /root
