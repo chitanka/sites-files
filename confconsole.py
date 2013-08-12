@@ -509,7 +509,7 @@ class TurnkeyConsole:
      return "advanced"
      
     def _adv_updatenow(self):
-     executil.system("echo UPDATING...; cd /var/www/chitanka; rsync -avz rsync.chitanka.info::content/ web/content > /var/www/chitanka/web/manual.log; php app/console auto-update --env=prod --skip-content >> /var/www/chitanka/web/manual.log; sh /var/www/maint")
+     executil.system("echo UPDATING...; echo $(date) > /var/www/chitanka/web/manual.log; cd /var/www/chitanka; rsync -avz rsync.chitanka.info::content/ web/content >> /var/www/chitanka/web/manual.log; php app/console auto-update --env=prod --skip-content >> /var/www/chitanka/web/manual.log; sh /var/www/maint")
      return "advanced"
 
     def _adv_share(self):
