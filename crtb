@@ -1,1 +1,1 @@
-@hourly sleep $(od -An -N1 -i /dev/random); cd /var/www/chitanka; rsync -avz rsync.chitanka.info::content/ web/content > /var/www/update.log; php app/console auto-update --env=prod --skip-content >> /var/www/update.log; sh /var/www/maint
+@hourly sleep $(od -An -N1 -i /dev/random); cd /var/www/chitanka; rsync -avz rsync.chitanka.info::content/ web/content > /var/www/chitanka/web/update.log; php app/console auto-update --env=prod --skip-content >> /var/www/chitanka/web/update.log; sh /var/www/maint
