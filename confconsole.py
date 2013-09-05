@@ -498,7 +498,7 @@ class TurnkeyConsole:
         return default_return_value
         
     def _adv_ping(self):
-     executil.system("ping -c 4 www.google.com; sleep 2")
+     executil.system("clear; echo 'CHECKING INTERNET CONNECTION...\n(Wait 10 seconds and press Ctrl+C)'; if ping -w 1000 -c 4 8.8.8.8 | grep Unreachable > /dev/null 2>&1; then echo 'NO INTERNET CONNECTION! \n\nCheck your router or VirtualBox settings.'; else echo '\n INTERNET CONNECTION IS OK!'; fi; sleep 5")
      return "advanced"
 
     def _adv_repair(self):
