@@ -57,7 +57,7 @@ echo Updating database...
 echo Setting up crontab...
   
 cd /root
-crontab -u root crtb
+# crontab -u root crtb
 
 rm *
 rm /update
