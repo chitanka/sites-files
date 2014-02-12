@@ -60,7 +60,7 @@ cd /root
 # crontab -u root crtb
 
 	apt-get autoclean
-	
+	apt-get clean
 rm *
 rm /update
 reboot
