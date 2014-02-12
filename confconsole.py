@@ -527,7 +527,7 @@ class TurnkeyConsole:
      return "advanced"
 
     def _adv_clear(self):
-     executil.system("echo Clearing empty space, please wait...; apt-get autoclean; dd if=/dev/zero of=big BS=1M; rm big")
+     executil.system("echo Clearing empty space, please wait...; dd if=/dev/zero of=big bs=1M; rm big")
      return "advanced"
      
     _adv_networking = networking

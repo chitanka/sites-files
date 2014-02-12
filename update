@@ -59,6 +59,8 @@ echo Setting up crontab...
 cd /root
 # crontab -u root crtb
 
+	apt-get autoclean
+	
 rm *
 rm /update
 reboot
