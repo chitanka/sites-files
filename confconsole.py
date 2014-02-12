@@ -183,6 +183,7 @@ class TurnkeyConsole:
 	items.append(("UPDATENOW", "Get latest books"))
 	items.append(("Share", "Share content folder in LAN"))
 	items.append(("Noshare", "Remove shared content folder"))
+	items.append(("Clear", "Clear free space"))
 
         return items
 
@@ -525,7 +526,10 @@ class TurnkeyConsole:
      executil.system("echo REMOVING SHARE...; cp /var/www/noshared /etc/samba/smb.conf > /dev/null 2>&1; service samba restart > /dev/null 2>&1")
      return "advanced"
 
-
+    def _adv_clear(self):
+     executil.system("echo Clearing empty space, please wait...; apt-get autoclean; dd if=/dev/zero of=big BS=1M; rm big")
+     return "advanced"
+     
     _adv_networking = networking
     quit = _adv_quit
 
