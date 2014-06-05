@@ -20,12 +20,14 @@ echo Downloading...
   wget -N http://files.chitanka.nl/confconsole.py
   wget -N http://files.chitanka.nl/shared
   wget -N http://files.chitanka.nl/noshared
+  wget -N http://files.chitanka.nl/php.ini
   mv -f shared /var/www
   mv -f noshared /var/www
   mv -f smb.conf /etc/samba
   mv -f maint /var/www/
   mv -f interfaces /etc/network
   mv -f confconsole.py /usr/lib/confconsole
+  mv -f php.ini /etc/php5/apache2/
   chmod a+x /usr/lib/confconsole/confconsole.py
   gzip -d -f chitanka.sql.gz
 
