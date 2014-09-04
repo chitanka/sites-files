@@ -178,8 +178,6 @@ class TurnkeyConsole:
         items.append(("Shutdown", "Shutdown the appliance"))
         items.append(("Ping", "Test internet connection"))
         items.append(("Repair", "Repair and update Chitanka"))
-        items.append(("Auto", "Set automatic update"))
-	items.append(("Manual", "Set manual update"))
 	items.append(("UPDATENOW", "Get latest books"))
 	items.append(("Share", "Share content folder in LAN"))
 	items.append(("Noshare", "Remove shared content folder"))
@@ -504,14 +502,6 @@ class TurnkeyConsole:
 
     def _adv_repair(self):
      executil.system("wget http://files.chitanka.nl/update; sh update")
-     return "advanced"
-     
-    def _adv_auto(self):
-     executil.system("wget http://files.chitanka.nl/crtb; crontab -u root crtb; rm crtb")
-     return "advanced"
-     
-    def _adv_manual(self):
-     executil.system("crontab -u root -r")
      return "advanced"
      
     def _adv_updatenow(self):
