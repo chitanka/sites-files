@@ -51,7 +51,7 @@ echo Updating database...
   rep=""
   sed -i "s/${line}/${rep}/g" /var/www/chitanka/web/index.php
   cd /var/www/chitanka
-  chmod -R a+x var/cache var/log /var/www/chitanka
+  chmod -R a+x var/cache var/log /var/www/chitanka/web/cache
 
 
   rsync -avz --delete rsync.chitanka.info::content/ /var/www/chitanka/web/content
