@@ -7,9 +7,9 @@ rm *
 echo chitanka > /etc/hostname
 
 echo Starting system update procedure. Do not reboot or shutdown!
-  apt-get update
-  apt-get upgrade -f -y
-  apt-get clean autoclean
+  # apt-get update
+  # apt-get upgrade -f -y
+  # apt-get clean autoclean
 
 echo Downloading...
   wget -N http://download.chitanka.info/chitanka.sql.gz
