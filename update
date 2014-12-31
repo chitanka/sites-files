@@ -7,9 +7,9 @@ rm *
 echo chitanka > /etc/hostname
 
 echo Starting system update procedure. Do not reboot or shutdown!
-  # apt-get update
-  # apt-get upgrade -f -y
-  # apt-get clean autoclean
+	apt-get update
+	apt-get upgrade -f -y
+  	apt-get clean autoclean
 
 echo Downloading...
   wget -N http://download.chitanka.info/chitanka.sql.gz
@@ -51,7 +51,7 @@ echo Updating database...
   rep=""
   sed -i "s/${line}/${rep}/g" /var/www/chitanka/web/index.php
   cd /var/www/chitanka
-  chmod -R a+w app/cache app/logs web/cache
+  chmod -R a+w var/cache var/log web/cache
 
 
   rsync -avz --delete rsync.chitanka.info::content/ /var/www/chitanka/web/content
