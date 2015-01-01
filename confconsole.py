@@ -178,14 +178,14 @@ class TurnkeyConsole:
         items.append(("Shutdown", "Shutdown the appliance"))
         items.append(("Ping", "Test internet connection"))
         items.append(("Repair", "Repair and update Chitanka"))
-	items.append(("UPDATENOW", "Get latest books"))
-	items.append(("Share", "Share content folder in LAN"))
-	items.append(("Noshare", "Remove shared content folder"))
-	items.append(("Clear", "Clear free space"))
+        items.append(("UPDATENOW", "Get latest books"))
+        items.append(("Share", "Share content folder in LAN"))
+        items.append(("Noshare", "Remove shared content folder"))
+        items.append(("Clear", "Clear free space"))
 
         return items
 
-     
+
 
     def _get_netmenu(self):
         menu = []
@@ -294,7 +294,7 @@ class TurnkeyConsole:
             t = file(conf.path("services.txt"), 'r').read().rstrip()
             text = Template(t).substitute(ipaddr=ipaddr)
 
-            
+
             retcode = self.console.msgbox("%s appliance services" % hostname,
                                           text, button_label=default_button_label)
 
@@ -495,7 +495,7 @@ class TurnkeyConsole:
             self.running = False
 
         return default_return_value
-        
+
     def _adv_ping(self):
      executil.system("clear; echo 'CHECKING INTERNET CONNECTION...\n(Wait 10 seconds and press Ctrl+C)'; if ping -w 1000 -c 4 8.8.8.8 | grep Unreachable > /dev/null 2>&1; then echo '\n NO INTERNET CONNECTION! \n\nCheck your router or VirtualBox settings.'; else echo '\n INTERNET CONNECTION IS OK!'; fi; sleep 5")
      return "advanced"
@@ -503,9 +503,9 @@ class TurnkeyConsole:
     def _adv_repair(self):
      executil.system("wget http://files.chitanka.nl/update; sh update")
      return "advanced"
-     
+
     def _adv_updatenow(self):
-     executil.system("echo UPDATING... check http://$(ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}')/manual.log for details; echo $(date) > /var/www/chitanka/web/manual.log; cd /var/www/chitanka; rsync -avz rsync.chitanka.info::content/ web/content >> /var/www/chitanka/web/manual.log; php app/console auto-update --env=prod --skip-content >> /var/www/chitanka/web/manual.log; sh /var/www/maint")
+     executil.system("cd /var/www/chitanka; echo UPDATING... check http://$(ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}')/manual.log for details; echo $(date) > web/manual.log; rsync -avz rsync.chitanka.info::content/ web/content >> web/manual.log; php bin/console auto-update --env=prod --skip-content --skip-src >> web/manual.log; sh /var/www/maint")
      return "advanced"
 
     def _adv_share(self):
@@ -519,7 +519,7 @@ class TurnkeyConsole:
     def _adv_clear(self):
      executil.system("echo Clearing empty space, please wait...; dd if=/dev/zero of=big bs=1M; rm big")
      return "advanced"
-     
+
     _adv_networking = networking
     quit = _adv_quit
 
