@@ -51,7 +51,7 @@ mysql -uroot -pchitanka chitanka < /root/chitanka.sql
   rep=""
   sed -i "s/${line}/${rep}/g" /var/www/chitanka/web/index.php
   cd /var/www/chitanka
-  chmod -R 777 var/cache var/log var/spool web/cache
+  chmod -R 755 var/cache var/log var/spool web/cache
 
 
   rsync -avz --delete rsync.chitanka.info::content/ /var/www/chitanka/web/content
