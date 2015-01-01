@@ -505,7 +505,7 @@ class TurnkeyConsole:
      return "advanced"
 
     def _adv_updatenow(self):
-     executil.system("cd /var/www/chitanka; echo UPDATING... check http://$(ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}')/manual.log for details; echo $(date) > web/manual.log; rsync -avz rsync.chitanka.info::content/ web/content >> web/manual.log; php bin/console auto-update --env=prod --skip-content --skip-src >> web/manual.log; sh /var/www/maint")
+     executil.system("cd /var/www/chitanka; echo UPDATING... check http://$(ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}')/manual.log for details; echo $(date) > web/manual.log; rsync -avz rsync.chitanka.info::content/ web/content >> web/manual.log; git pull; bin/cc; php bin/console auto-update --env=prod --skip-content --skip-src >> web/manual.log; sh /var/www/maint")
      return "advanced"
 
     def _adv_share(self):
