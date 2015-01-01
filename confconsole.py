@@ -178,10 +178,10 @@ class TurnkeyConsole:
         items.append(("Shutdown", "Shutdown the appliance"))
         items.append(("Ping", "Test internet connection"))
         items.append(("Repair", "Repair and update Chitanka"))
-	items.append(("UPDATENOW", "Get latest books"))
-	items.append(("Share", "Share content folder in LAN"))
-	items.append(("Noshare", "Remove shared content folder"))
-	items.append(("Clear", "Clear free space"))
+        items.append(("UPDATENOW", "Get latest books"))
+        items.append(("Share", "Share content folder in LAN"))
+        items.append(("Noshare", "Remove shared content folder"))
+        items.append(("Clear", "Clear free space"))
 
         return items
 
