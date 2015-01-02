@@ -66,6 +66,7 @@ echo Setting up crontab...
 cd /root
 # crontab -u root crtb
 
+clear
 	apt-get autoclean
 	apt-get clean
 rm *
