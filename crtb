@@ -1,2 +1,2 @@
-@hourly sleep $(od -An -N1 -i /dev/random); cd /var/www/chitanka; rsync -avz rsync.chitanka.info::content/ web/content > /var/www/chitanka/web/update.log; git stash; git pull; bin/cc; php bin/console auto-update --env=prod --skip-content --skip-src >> /var/www/chitanka/web/update.log; sh /var/www/maint
-                                     
+@hourly sleep $(od -An -N1 -i /dev/random); cd /var/www/chitanka; rsync -avz rsync.chitanka.info::content/ web/content > web/update.log; git stash; git pull; bin/cc; bin/console auto-update --env=prod --skip-content --skip-src >> web/update.log
+@daily /var/www/chitanka/bin/console db:update-counts --env=prod > /dev/null
