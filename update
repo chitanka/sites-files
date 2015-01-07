@@ -59,7 +59,7 @@ mysql -uroot -pchitanka chitanka < /root/chitanka.sql
 
   rsync -avz --delete rsync.chitanka.info::content/ /var/www/chitanka/web/content
   echo $(date -I)/1 > /var/www/chitanka/update/db/.last
-  cd /var/www/chitanka; php bin/console auto-update --env=prod --skip-content --skip-src
+  cd /var/www/chitanka; git stash; git pull; bin/console db:update-counts; bin/cc; php bin/console auto-update --env=prod --skip-content --skip-src
 
 echo Setting up crontab...
 
