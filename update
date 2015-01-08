@@ -39,6 +39,10 @@ echo "UPDATE text set removed_notice=null;" >> /root/chitanka.sql
 echo "UPDATE book set removed_notice=null;" >> /root/chitanka.sql
 mysql -uroot -pchitanka chitanka < /root/chitanka.sql
 
+   clear
+   
+echo "Cloning..."
+
   mv /var/www/chitanka/web/content /root
   rm -fr /var/www/chitanka
   git clone git://gitorious.org/chitanka/chitanka-production.git chitanka
@@ -59,7 +63,7 @@ mysql -uroot -pchitanka chitanka < /root/chitanka.sql
 
   rsync -avz --delete rsync.chitanka.info::content/ /var/www/chitanka/web/content
   echo $(date -I)/1 > /var/www/chitanka/update/db/.last
-  cd /var/www/chitanka; git stash; git pull; bin/console db:update-counts; bin/cc; php bin/console auto-update --env=prod --skip-content --skip-src
+  cd /var/www/chitanka; git stash; git pull; bin/console db:update-counts; php bin/console auto-update --env=prod --skip-content --skip-src
 
 echo Setting up crontab...
 
@@ -70,5 +74,6 @@ clear
 	apt-get autoclean
 	apt-get clean
 rm *
+clear
 rm /update
 reboot
