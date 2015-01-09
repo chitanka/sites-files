@@ -68,7 +68,7 @@ echo "Synchronize content..."
   clear
 echo "Synchronize database..."  
 
-  cd /var/www/chitanka; git stash; git pull; bin/console db:update-counts; php bin/console auto-update --env=prod --skip-content --skip-src
+  cd /var/www/chitanka; git stash; git pull; php bin/console auto-update --env=prod --skip-content --skip-src
 
 echo Setting up crontab...
 
