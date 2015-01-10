@@ -15,9 +15,8 @@ dpkg-reconfigure --frontend noninteractive tzdata
 clear
 
 echo Starting system update procedure. Do not reboot or shutdown!
-	dpkg -s apt-utils $>/dev/null || apt-get -y install apt-utils
-	debconf-apt-progress apt-get update
-	debconf-apt-progress apt-get upgrade -y
+	apt-get update
+	apt-get upgrade -f -y
 	
 clear
 
