@@ -88,4 +88,5 @@ clear
 	apt-get clean
 rm * &> /dev/null
 rm /update &> /dev/null
+clear
 reboot
