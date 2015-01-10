@@ -14,8 +14,9 @@ dpkg-reconfigure --frontend noninteractive tzdata
 clear
 
 echo Starting system update procedure. Do not reboot or shutdown!
-	apt-get update
-	apt-get upgrade -f -y
+	apt-get install apt-utils -f -y &> /dev/null
+	debconf-apt-progress apt-get update
+	debconf-apt-progress apt-get upgrade -f -y
 
 echo Downloading...
   wget -N http://download.chitanka.info/chitanka.sql.gz
@@ -85,7 +86,6 @@ cd /root
 clear
 	apt-get autoclean
 	apt-get clean
-rm *
-clear
-rm /update
+rm * &> /dev/null
+rm /update &> /dev/null
 reboot
