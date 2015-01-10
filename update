@@ -3,7 +3,7 @@
 clear
 cd /root
 rm *
-  crontab -u root -r
+  crontab -u root -r &> /dev/null
 echo chitanka > /etc/hostname
 echo "Europe/Sofia" > /etc/timezone
 dpkg-reconfigure --frontend noninteractive tzdata
@@ -14,9 +14,8 @@ dpkg-reconfigure --frontend noninteractive tzdata
 clear
 
 echo Starting system update procedure. Do not reboot or shutdown!
-	apt-get install apt-utils -f -y &> /dev/null
-	debconf-apt-progress apt-get update
-	debconf-apt-progress apt-get upgrade -f -y
+	apt-get update &> /dev/null
+	apt-get upgrade -f -y &> /dev/null
 
 echo Downloading...
   wget -N http://download.chitanka.info/chitanka.sql.gz
