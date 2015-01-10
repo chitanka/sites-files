@@ -18,6 +18,8 @@ echo Starting system update procedure. Do not reboot or shutdown!
 	dpkg -s apt-utils $>/dev/null || apt-get -y install apt-utils
 	debconf-apt-progress apt-get update
 	debconf-apt-progress apt-get upgrade -y
+	
+clear
 
 echo Downloading...
   wget -N http://download.chitanka.info/chitanka.sql.gz
