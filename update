@@ -5,6 +5,13 @@ cd /root
 rm *
   crontab -u root -r
 echo chitanka > /etc/hostname
+echo "Europe/Sofia" > /etc/timezone
+dpkg-reconfigure --frontend noninteractive tzdata
+
+  line="127.0.1.1 lamp"
+  rep="127.0.1.1 chitanka"
+  sed -i "s/${line}/${rep}/g" /etc/hosts
+clear
 
 echo Starting system update procedure. Do not reboot or shutdown!
 	apt-get update
