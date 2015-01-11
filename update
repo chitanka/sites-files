@@ -90,6 +90,6 @@ clear
 	apt-get autoclean 2>/dev/null 1>/dev/null
 	apt-get clean 2>/dev/null 1>/dev/null
 rm *
-rm /update &> /dev/null
+rm /update 2>/dev/null 1>/dev/null
 clear
 reboot
