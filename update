@@ -18,7 +18,6 @@ clear
 
 echo Downloading...
   wget -N http://download.chitanka.info/chitanka.sql.gz 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.nl/upgrd 2>/dev/null 1>/dev/null
   wget -N http://files.chitanka.nl/maint 2>/dev/null 1>/dev/null
   wget -N http://files.chitanka.nl/crtb 2>/dev/null 1>/dev/null
   wget -N http://files.chitanka.nl/smb.conf 2>/dev/null 1>/dev/null
@@ -42,10 +41,8 @@ echo Downloading...
   clear
   
   echo Starting system update procedure. Do not reboot or shutdown!
-	dpkg -s apt-utils 2>/dev/null 1>/dev/null || sh upgrd
-	clear
-	debconf-apt-progress apt-get update; clear
-	debconf-apt-progress apt-get upgrade -f -y; clear
+	apt-get update 2>/dev/null 1>/dev/null
+	apt-get upgrade -f -y 2>/dev/null 1>/dev/null
 	
 
 echo "Updating database..."
