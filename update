@@ -90,8 +90,8 @@ cd /root
 # crontab -u root crtb
 
 clear
-	apt-get autoclean
-	apt-get clean
+	apt-get autoclean 2>/dev/null 1>/dev/null
+	apt-get clean 2>/dev/null 1>/dev/null
 rm * &> /dev/null
 rm /update &> /dev/null
 clear
