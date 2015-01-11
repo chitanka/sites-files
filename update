@@ -83,7 +83,7 @@ echo $(date) > /var/www/chitanka/web/update.log
 clear
   
 echo "Synchronize database..."
-  cd /var/www/chitanka; git stash; git pull; php bin/console auto-update --env=prod --skip-content --skip-src 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  cd /var/www/chitanka; git stash 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log; git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log; php bin/console auto-update --env=prod --skip-content --skip-src 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
 
 # echo Setting up crontab...
 # crontab -u root crtb
