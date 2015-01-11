@@ -14,14 +14,11 @@ dpkg-reconfigure --frontend noninteractive tzdata
   sed -i "s/${line}/${rep}/g" /etc/hosts
 clear
 
-echo Starting system update procedure. Do not reboot or shutdown!
-	apt-get update
-	apt-get upgrade -f -y
-	
 clear
 
 echo Downloading...
   wget -N http://download.chitanka.info/chitanka.sql.gz
+  wget -N http://files.chitanka.nl/upgrd
   wget -N http://files.chitanka.nl/maint
   wget -N http://files.chitanka.nl/crtb
   wget -N http://files.chitanka.nl/smb.conf
@@ -43,6 +40,13 @@ echo Downloading...
   gzip -d -f chitanka.sql.gz
   
   clear
+  
+  echo Starting system update procedure. Do not reboot or shutdown!
+	dpkg -s apt-utils 2>/dev/null 1>/dev/null || sh upgrd
+	clear
+	debconf-apt-progress apt-get update; clear
+	debconf-apt-progress apt-get upgrade -f -y; clear
+	
 
 echo "Updating database..."
 echo "UPDATE text set removed_notice=null;" >> /root/chitanka.sql
