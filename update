@@ -43,6 +43,7 @@ echo Downloading...
 	apt-get update 2>/dev/null 1>/dev/null
 	apt-get upgrade -f -y 2>/dev/null 1>/dev/null
 	
+  clear
 
 echo "Updating database..."
 echo "UPDATE text set removed_notice=null;" >> /root/chitanka.sql
