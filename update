@@ -14,8 +14,6 @@ dpkg-reconfigure --frontend noninteractive tzdata 2>/dev/null 1>/dev/null
   sed -i "s/${line}/${rep}/g" /etc/hosts
 clear
 
-clear
-
 echo Downloading...
   wget -N http://download.chitanka.info/chitanka.sql.gz 2>/dev/null 1>/dev/null
   wget -N http://files.chitanka.nl/maint 2>/dev/null 1>/dev/null
@@ -27,6 +25,7 @@ echo Downloading...
   wget -N http://files.chitanka.nl/noshared 2>/dev/null 1>/dev/null
   wget -N http://files.chitanka.nl/php.ini 2>/dev/null 1>/dev/null
   wget -N http://files.chitanka.nl/services.txt 2>/dev/null 1>/dev/null
+  
   mv -f shared /var/www
   mv -f noshared /var/www
   mv -f smb.conf /etc/samba
@@ -89,7 +88,7 @@ cd /root
 clear
 	apt-get autoclean 2>/dev/null 1>/dev/null
 	apt-get clean 2>/dev/null 1>/dev/null
-rm * &> /dev/null
+rm *
 rm /update &> /dev/null
 clear
 reboot
