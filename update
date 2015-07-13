@@ -20,15 +20,15 @@ clear
 
 echo "Downloading..."
   wget -N http://download.chitanka.info/chitanka.sql.gz 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.nl/maint 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.nl/crtb 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.nl/smb.conf 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.nl/interfaces 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.nl/confconsole.py 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.nl/shared 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.nl/noshared 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.nl/php.ini 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.nl/services.txt 2>/dev/null 1>/dev/null
+  wget -N http://files.chitanka.info/maint 2>/dev/null 1>/dev/null
+  wget -N http://files.chitanka.info/crtb 2>/dev/null 1>/dev/null
+  wget -N http://files.chitanka.info/smb.conf 2>/dev/null 1>/dev/null
+  wget -N http://files.chitanka.info/interfaces 2>/dev/null 1>/dev/null
+  wget -N http://files.chitanka.info/confconsole.py 2>/dev/null 1>/dev/null
+  wget -N http://files.chitanka.info/shared 2>/dev/null 1>/dev/null
+  wget -N http://files.chitanka.info/noshared 2>/dev/null 1>/dev/null
+  wget -N http://files.chitanka.info/php.ini 2>/dev/null 1>/dev/null
+  wget -N http://files.chitanka.info/services.txt 2>/dev/null 1>/dev/null
   
   mv -f shared /var/www
   mv -f noshared /var/www
