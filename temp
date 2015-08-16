@@ -1,3 +1,6 @@
 GETTEMP1=`wl -i eth1 phy_tempsense | awk '{ print $1}'`
 TEMP1=$((GETTEMP1/2+20))
-echo "$TEMP1"
+GETTEMP2=`wl -i eth2 phy_tempsense | awk '{ print $1}'`
+TEMP2=$((GETTEMP2/2+20))
+echo "Current 2.4 Ghz temperature is " "$TEMP1" "degree C"
+echo "Current 5 Ghz temperature is " "$TEMP2" "degree C"
