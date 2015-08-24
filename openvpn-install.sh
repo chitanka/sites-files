@@ -41,6 +41,7 @@ fi
 newclient () {
 	# Generates the client.ovpn
 	cp /usr/share/doc/openvpn*/*ample*/sample-config-files/client.conf ~/$1.ovpn
+	echo "auth-user-pass">> ~/$1.ovpn
 	sed -i "/ca ca.crt/d" ~/$1.ovpn
 	sed -i "/cert client.crt/d" ~/$1.ovpn
 	sed -i "/key client.key/d" ~/$1.ovpn
@@ -217,6 +218,21 @@ else
 	echo "Please, use one word only, no special characters"
 	read -p "Client name: " -e -i client CLIENT
 	echo ""
+                echo "Tell me a password for your new client"
+                read -p "Password: " -s -e -i "" PASSWORD
+                echo ""
+                read -p "Repeat password: " -s -e -i "" PASSWORD1
+                         while [ "$PASSWORD" != "$PASSWORD1" ]
+                                do
+                                clear
+                                        echo "Password do not match, please enter again"
+                                        read -p "Password: " -s -e -i "" PASSWORD
+                                        echo ""
+                                        read -p"Repeat password: " -s -e -i "" PASSWORD1
+                                done
+                        pass=$(perl -e 'print crypt($ARGV[0], "PASSWORD")' $PASSWORD)
+                        useradd -M -p $pass $CLIENT
+
 	echo "Okay, that was all I needed. We are ready to setup your OpenVPN server now"
 	read -n1 -r -p "Press any key to continue..."
 		if [[ "$OS" = 'debian' ]]; then
@@ -268,6 +284,7 @@ else
 	cp ca.crt ca.key dh2048.pem server.crt server.key /etc/openvpn
 	cd /etc/openvpn/
 	# Set the server configuration
+	echo "plugin /usr/lib/openvpn/openvpn-plugin-auth-pam.so login" >> server.config
 	sed -i 's|dh dh1024.pem|dh dh2048.pem|' server.conf
 	sed -i 's|;push "redirect-gateway def1 bypass-dhcp"|push "redirect-gateway def1 bypass-dhcp"|' server.conf
 	sed -i "s|port 1194|port $PORT|" server.conf
