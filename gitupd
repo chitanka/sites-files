@@ -107,110 +107,140 @@ then
 else
   cd /var/www/chitanka/web/content/book
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-fi    #sync book
-  if [ ! -d /var/www/chitanka/web/content/book/.git ]
+fi
+
+#sync book-anno
+  if [ ! -d /var/www/chitanka/web/content/book-anno/.git ]
 then
-    git clone https://github.com/chitanka/content-book.git /var/www/chitanka/web/content/book
+    git clone https://github.com/chitanka/content-book-anno.git /var/www/chitanka/web/content/book-anno
 else
-  cd /var/www/chitanka/web/content/book
+  cd /var/www/chitanka/web/content/book-anno
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-fi    #sync book
-  if [ ! -d /var/www/chitanka/web/content/book/.git ]
+fi
+
+#sync book-cover
+  if [ ! -d /var/www/chitanka/web/content/book-cover/.git ]
 then
-    git clone https://github.com/chitanka/content-book.git /var/www/chitanka/web/content/book
+    git clone https://github.com/chitanka/content-book-cover.git /var/www/chitanka/web/content/book-cover
 else
-  cd /var/www/chitanka/web/content/book
+  cd /var/www/chitanka/web/content/book-cover
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-fi    #sync book
-  if [ ! -d /var/www/chitanka/web/content/book/.git ]
+fi
+
+#sync book-djvu
+  if [ ! -d /var/www/chitanka/web/content/book-djvu/.git ]
 then
-    git clone https://github.com/chitanka/content-book.git /var/www/chitanka/web/content/book
+    git clone https://github.com/chitanka/content-book-djvu.git /var/www/chitanka/web/content/book-djvu
 else
-  cd /var/www/chitanka/web/content/book
+  cd /var/www/chitanka/web/content/book-djvu
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-fi    #sync book
-  if [ ! -d /var/www/chitanka/web/content/book/.git ]
+fi
+
+#sync book-img
+  if [ ! -d /var/www/chitanka/web/content/book-img/.git ]
 then
-    git clone https://github.com/chitanka/content-book.git /var/www/chitanka/web/content/book
+    git clone https://github.com/chitanka/content-book-img.git /var/www/chitanka/web/content/book-img
 else
-  cd /var/www/chitanka/web/content/book
+  cd /var/www/chitanka/web/content/book-img
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-fi    #sync book
-  if [ ! -d /var/www/chitanka/web/content/book/.git ]
+fi
+
+#sync book-info
+  if [ ! -d /var/www/chitanka/web/content/book-info/.git ]
 then
-    git clone https://github.com/chitanka/content-book.git /var/www/chitanka/web/content/book
+    git clone https://github.com/chitanka/content-book-info.git /var/www/chitanka/web/content/book-info
 else
-  cd /var/www/chitanka/web/content/book
+  cd /var/www/chitanka/web/content/book-info
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-fi    #sync book
-  if [ ! -d /var/www/chitanka/web/content/book/.git ]
+fi
+
+#sync book-pdf
+  if [ ! -d /var/www/chitanka/web/content/book-pdf/.git ]
 then
-    git clone https://github.com/chitanka/content-book.git /var/www/chitanka/web/content/book
+    git clone https://github.com/chitanka/content-book-pdf.git /var/www/chitanka/web/content/book-pdf
 else
-  cd /var/www/chitanka/web/content/book
+  cd /var/www/chitanka/web/content/book-pdf
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-fi    #sync book
-  if [ ! -d /var/www/chitanka/web/content/book/.git ]
+fi
+
+#sync book-pic
+  if [ ! -d /var/www/chitanka/web/content/book-pic/.git ]
 then
-    git clone https://github.com/chitanka/content-book.git /var/www/chitanka/web/content/book
+    git clone https://github.com/chitanka/content-book-pic.git /var/www/chitanka/web/content/book-pic
 else
-  cd /var/www/chitanka/web/content/book
+  cd /var/www/chitanka/web/content/book-pic
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-fi    #sync book
-  if [ ! -d /var/www/chitanka/web/content/book/.git ]
+fi
+
+#sync cover
+  if [ ! -d /var/www/chitanka/web/content/cover/.git ]
 then
-    git clone https://github.com/chitanka/content-book.git /var/www/chitanka/web/content/book
+    git clone https://github.com/chitanka/content-cover.git /var/www/chitanka/web/content/cover
 else
-  cd /var/www/chitanka/web/content/book
+  cd /var/www/chitanka/web/content/cover
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-fi    #sync book
-  if [ ! -d /var/www/chitanka/web/content/book/.git ]
+fi
+
+#sync img
+  if [ ! -d /var/www/chitanka/web/content/img/.git ]
 then
-    git clone https://github.com/chitanka/content-book.git /var/www/chitanka/web/content/book
+    git clone https://github.com/chitanka/content-img.git /var/www/chitanka/web/content/img
 else
-  cd /var/www/chitanka/web/content/book
+  cd /var/www/chitanka/web/content/img
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-fi    #sync book
-  if [ ! -d /var/www/chitanka/web/content/book/.git ]
+fi
+
+#sync misc
+  if [ ! -d /var/www/chitanka/web/content/misc/.git ]
 then
-    git clone https://github.com/chitanka/content-book.git /var/www/chitanka/web/content/book
+    git clone https://github.com/chitanka/content-misc.git /var/www/chitanka/web/content/misc
 else
-  cd /var/www/chitanka/web/content/book
+  cd /var/www/chitanka/web/content/misc
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-fi    #sync book
-  if [ ! -d /var/www/chitanka/web/content/book/.git ]
+fi
+
+#sync text
+  if [ ! -d /var/www/chitanka/web/content/text/.git ]
 then
-    git clone https://github.com/chitanka/content-book.git /var/www/chitanka/web/content/book
+    git clone https://github.com/chitanka/content-text.git /var/www/chitanka/web/content/text
 else
-  cd /var/www/chitanka/web/content/book
+  cd /var/www/chitanka/web/content/text
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-fi    #sync book
-  if [ ! -d /var/www/chitanka/web/content/book/.git ]
+fi
+
+#sync text-anno
+  if [ ! -d /var/www/chitanka/web/content/text-anno/.git ]
 then
-    git clone https://github.com/chitanka/content-book.git /var/www/chitanka/web/content/book
+    git clone https://github.com/chitanka/content-text-anno.git /var/www/chitanka/web/content/text-anno
 else
-  cd /var/www/chitanka/web/content/book
+  cd /var/www/chitanka/web/content/text-anno
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-fi    #sync book
-  if [ ! -d /var/www/chitanka/web/content/book/.git ]
+fi
+
+#sync text-info
+  if [ ! -d /var/www/chitanka/web/content/text-info/.git ]
 then
-    git clone https://github.com/chitanka/content-book.git /var/www/chitanka/web/content/book
+    git clone https://github.com/chitanka/content-text-info.git /var/www/chitanka/web/content/text-info
 else
-  cd /var/www/chitanka/web/content/book
+  cd /var/www/chitanka/web/content/text-info
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-fi    #sync book
-  if [ ! -d /var/www/chitanka/web/content/book/.git ]
+fi
+
+#sync user
+  if [ ! -d /var/www/chitanka/web/content/user/.git ]
 then
-    git clone https://github.com/chitanka/content-book.git /var/www/chitanka/web/content/book
+    git clone https://github.com/chitanka/content-user.git /var/www/chitanka/web/content/user
 else
-  cd /var/www/chitanka/web/content/book
+  cd /var/www/chitanka/web/content/user
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-fi    #sync book
+fi
+
+#sync wiki
   if [ ! -d /var/www/chitanka/web/content/book/.git ]
 then
-    git clone https://github.com/chitanka/content-book.git /var/www/chitanka/web/content/book
+    git clone https://github.com/chitanka/content-wiki.git /var/www/chitanka/web/content/wiki
 else
-  cd /var/www/chitanka/web/content/book
+  cd /var/www/chitanka/web/content/wiki
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
 fi
 
