@@ -34,6 +34,7 @@ echo "Downloading..."
   wget -N http://files.chitanka.info/php.ini 2>/dev/null 1>/dev/null
   wget -N http://files.chitanka.info/gitservices.txt 2>/dev/null 1>/dev/null
   wget -N http://files.chitanka.info/gitsync 2>/dev/null 1>/dev/null
+  wget -N http://files.chitanka.info/virthost 2>/dev/null 1>/dev/null
   
   mv -f shared /var/www
   mv -f noshared /var/www
@@ -44,6 +45,7 @@ echo "Downloading..."
   mv -f php.ini /etc/php5/apache2/
   mv -f gitsync /var/www
   mv -f gitservices.txt /etc/confconsole/services.txt
+  mv -f virthost /etc/apache2/sites-available/chitanka
   chmod a+x /usr/lib/confconsole/confconsole.py
   gzip -d -f chitanka.sql.gz
   
@@ -138,6 +140,8 @@ echo "Cleaning up..."
   cd /root
   rm *
   rm /update 2>/dev/null 1>/dev/null
+  a2dissite *
+  a2ensite chitanka
   
 clear
 echo "REBOOTING!"
