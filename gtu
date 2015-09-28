@@ -12,6 +12,7 @@ clear
   a2enmod rewrite
   a2enmod expires
   a2enmod headers
+  apt-get update
   apt-get install -o Dpkg::Options::="--force-confold" --force-yes -y php5-curl php5-xsl
   echo chitanka > /etc/hostname
   echo "Europe/Sofia" > /etc/timezone
@@ -52,8 +53,8 @@ echo "Downloading..."
 clear
   
   echo "Starting system update procedure. Do not reboot or shutdown!"
-  apt-get update
-  apt-get upgrade -f -y
+  #apt-get update
+  #apt-get upgrade -f -y
 	
 clear
 
