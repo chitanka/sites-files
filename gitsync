@@ -1,0 +1,34 @@
+  #!/bin/bash
+
+  cd /var/www/chitanka/web/content/book-anno
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  cd /var/www/chitanka/web/content/book-cover
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  cd /var/www/chitanka/web/content/book-djvu
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  cd /var/www/chitanka/web/content/book-img
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  cd /var/www/chitanka/web/content/book-info
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  cd /var/www/chitanka/web/content/book-pdf
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  cd /var/www/chitanka/web/content/book-pic
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  cd /var/www/chitanka/web/content/content-book
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  cd /var/www/chitanka/web/content/content-cover
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  cd /var/www/chitanka/web/content/content-img
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  cd /var/www/chitanka/web/content/content-misc
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  cd /var/www/chitanka/web/content/content-text
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  cd /var/www/chitanka/web/content/content-wiki
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  cd /var/www/chitanka/web/content/text-anno
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  cd /var/www/chitanka/web/content/text-info
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  cd /var/www/chitanka/web/content/user
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
