@@ -24,20 +24,20 @@ echo "Downloading..."
   wget -N http://files.chitanka.info/crtb 2>/dev/null 1>/dev/null
   wget -N http://files.chitanka.info/smb.conf 2>/dev/null 1>/dev/null
   wget -N http://files.chitanka.info/interfaces 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.info/confconsole.py 2>/dev/null 1>/dev/null
+  wget -N http://files.chitanka.info/gitconfconsole.py 2>/dev/null 1>/dev/null
   wget -N http://files.chitanka.info/shared 2>/dev/null 1>/dev/null
   wget -N http://files.chitanka.info/noshared 2>/dev/null 1>/dev/null
   wget -N http://files.chitanka.info/php.ini 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.info/services.txt 2>/dev/null 1>/dev/null
+  wget -N http://files.chitanka.info/gitservices.txt 2>/dev/null 1>/dev/null
   
   mv -f shared /var/www
   mv -f noshared /var/www
   mv -f smb.conf /etc/samba
   mv -f maint /var/www/
-  mv -f interfaces /etc/network
-  mv -f confconsole.py /usr/lib/confconsole
+  # mv -f interfaces /etc/network
+  mv -f gitconfconsole.py /usr/lib/confconsole/confconsole.py
   mv -f php.ini /etc/php5/apache2/
-  mv -f services.txt /etc/confconsole
+  mv -f gitservices.txt /etc/confconsole/services.txt
   chmod a+x /usr/lib/confconsole/confconsole.py
   gzip -d -f chitanka.sql.gz
   
@@ -58,10 +58,12 @@ clear
    
 echo "Cloning..."
   mv /var/www/chitanka/web/content /root
-  rm -fr /var/www/chitanka
-  git clone git://github.com/chitanka/chitanka-production.git chitanka 2>/dev/null 1>/dev/null
-  mv chitanka /var/www/
-  mv /root/content /var/www/chitanka/web
+  # rm -fr /var/www/chitanka
+  # git clone git://github.com/chitanka/chitanka-production.git chitanka 2>/dev/null 1>/dev/null
+  # mv chitanka /var/www/
+  # mv /root/content /var/www/chitanka/web
+  cd /var/www/chitanka
+  git pull
   cp /var/www/chitanka/app/config/parameters.yml.dist /var/www/chitanka/app/config/parameters.yml
   line="database_password:  ~"
   rep="database_password:  chitanka"
@@ -77,8 +79,42 @@ clear
   
 echo "Synchronize content..."
 echo $(date) > /var/www/chitanka/web/update.log
-  rsync -avz --delete rsync.chitanka.info::content/ /var/www/chitanka/web/content 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-  echo $(date -I)/1 > /var/www/chitanka/update/db/.last
+  #rsync -avz --delete rsync.chitanka.info::content/ /var/www/chitanka/web/content 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  #echo $(date -I)/1 > /var/www/chitanka/update/db/.last
+  cd /var/www/chitanka/web/content/user
+  git pull
+  cd /var/www/chitanka/web/content/book-info
+  git pull
+  cd /var/www/chitanka/web/content/book-anno
+  git pull
+  cd /var/www/chitanka/web/content/content-text
+  git pull
+  cd /var/www/chitanka/web/content/book-cover
+  git pull
+  cd /var/www/chitanka/web/content/content-book
+  git pull
+  cd /var/www/chitanka/web/content/content-wiki
+  git pull
+  cd /var/www/chitanka/web/content/content-img
+  git pull
+  cd /var/www/chitanka/web/content/text-info
+  git pull
+  cd /var/www/chitanka/web/content/text-anno
+  git pull
+  cd /var/www/chitanka/web/content/book-pic
+  git pull
+  cd /var/www/chitanka/web/content/book-img
+  git pull
+  cd /var/www/chitanka/web/content/book-djvu
+  git pull
+  cd /var/www/chitanka/web/content/content-cover
+  git pull
+  cd /var/www/chitanka/web/content/content-misc
+  git pull
+  cd /var/www/chitanka/web/content/book-pdf
+  
+  
+  
   
 clear
   
