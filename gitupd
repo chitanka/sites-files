@@ -71,6 +71,14 @@ echo "Cloning..."
   # git clone git://github.com/chitanka/chitanka-production.git chitanka 2>/dev/null 1>/dev/null
   # mv chitanka /var/www/
   # mv /root/content /var/www/chitanka/web
+  
+  if [ ! -d /var/www/chitanka/.git ]
+then
+    git clone https://github.com/chitanka/chitanka.git /var/www/chitanka
+else
+    cd /var/www/chitanka
+    git pull https://github.com/chitanka/chitanka.git
+  
   cd /var/www/chitanka
   git pull
   cp /var/www/chitanka/app/config/parameters.yml.dist /var/www/chitanka/app/config/parameters.yml
@@ -90,9 +98,17 @@ echo "Synchronize content..."
 echo $(date) > /var/www/chitanka/web/update.log
   #rsync -avz --delete rsync.chitanka.info::content/ /var/www/chitanka/web/content 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
   #echo $(date -I)/1 > /var/www/chitanka/update/db/.last
+  #sync book-anno
   mv /root/content /var/www/chitanka/web
+  if [ ! -d /var/www/chitanka/web/content/book-anno/.git ]
+then
+    git clone https://github.com/chitanka/content-book-anno.git web/content/book-anno
+else
   cd /var/www/chitanka/web/content/book-anno
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+fi
+
+  #sync 
   cd /var/www/chitanka/web/content/book-cover
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
   cd /var/www/chitanka/web/content/book-djvu
