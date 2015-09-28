@@ -1,0 +1,11 @@
+	<VirtualHost *:80>
+		DocumentRoot /var/www/chitanka/web/
+		ServerName chitanka
+		<Directory "/var/www/chitanka/web/">
+			AllowOverride All
+			Allow from All
+		</Directory>
+		LogLevel warn
+		ErrorLog /var/log/chitanka.error.log
+		CustomLog /var/log/chitanka.access.log common
+	</VirtualHost>
