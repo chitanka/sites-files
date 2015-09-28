@@ -1,5 +1,7 @@
   #!/bin/bash
 
+  cd /var/www/chitanka/web/content/book
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
   cd /var/www/chitanka/web/content/book-anno
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
   cd /var/www/chitanka/web/content/book-cover
@@ -14,21 +16,19 @@
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
   cd /var/www/chitanka/web/content/book-pic
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-  cd /var/www/chitanka/web/content/content-book
+  cd /var/www/chitanka/web/content/cover
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-  cd /var/www/chitanka/web/content/content-cover
+  cd /var/www/chitanka/web/content/img
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-  cd /var/www/chitanka/web/content/content-img
+  cd /var/www/chitanka/web/content/misc
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-  cd /var/www/chitanka/web/content/content-misc
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-  cd /var/www/chitanka/web/content/content-text
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-  cd /var/www/chitanka/web/content/content-wiki
+  cd /var/www/chitanka/web/content/text
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
   cd /var/www/chitanka/web/content/text-anno
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
   cd /var/www/chitanka/web/content/text-info
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
   cd /var/www/chitanka/web/content/user
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  cd /var/www/chitanka/web/content/wiki
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
