@@ -1,0 +1,8 @@
+#sync book
+  if [ ! -d /var/www/chitanka/web/content/book/.git ]
+then
+    git clone https://github.com/chitanka/content-book.git /var/www/chitanka/web/content/book
+else
+  cd /var/www/chitanka/web/content/book
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+fi
