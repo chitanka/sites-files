@@ -33,6 +33,7 @@ echo "Downloading..."
   wget -N http://files.chitanka.info/noshared 2>/dev/null 1>/dev/null
   wget -N http://files.chitanka.info/php.ini 2>/dev/null 1>/dev/null
   wget -N http://files.chitanka.info/gitservices.txt 2>/dev/null 1>/dev/null
+  wget -N http://files.chitanka.info/gitsync 2>/dev/null 1>/dev/null
   
   mv -f shared /var/www
   mv -f noshared /var/www
@@ -41,6 +42,7 @@ echo "Downloading..."
   mv -f interfaces /etc/network
   mv -f gitconfconsole.py /usr/lib/confconsole/confconsole.py
   mv -f php.ini /etc/php5/apache2/
+  mv -f gitsync /var/www
   mv -f gitservices.txt /etc/confconsole/services.txt
   chmod a+x /usr/lib/confconsole/confconsole.py
   gzip -d -f chitanka.sql.gz
