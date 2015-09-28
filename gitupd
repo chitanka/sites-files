@@ -78,6 +78,7 @@ then
 else
     cd /var/www/chitanka
     git pull https://github.com/chitanka/chitanka.git
+  fi
   
   cd /var/www/chitanka
   git pull
