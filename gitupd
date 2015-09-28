@@ -9,6 +9,10 @@ clear
   
 clear
 
+  a2enmod rewrite
+  a2enmod expires
+  a2enmod headers
+  apt-get install -o Dpkg::Options::="--force-confold" --force-yes -y php5-curl php5-xsl
   echo chitanka > /etc/hostname
   echo "Europe/Sofia" > /etc/timezone 2>/dev/null 1>/dev/null
   dpkg-reconfigure --frontend noninteractive tzdata 2>/dev/null 1>/dev/null
@@ -82,37 +86,37 @@ echo $(date) > /var/www/chitanka/web/update.log
   #rsync -avz --delete rsync.chitanka.info::content/ /var/www/chitanka/web/content 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
   #echo $(date -I)/1 > /var/www/chitanka/update/db/.last
   mv /root/content /var/www/chitanka/web
-  cd /var/www/chitanka/web/content/user
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-  cd /var/www/chitanka/web/content/book-info
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
   cd /var/www/chitanka/web/content/book-anno
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-  cd /var/www/chitanka/web/content/content-text
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
   cd /var/www/chitanka/web/content/book-cover
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-  cd /var/www/chitanka/web/content/content-book
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-  cd /var/www/chitanka/web/content/content-wiki
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-  cd /var/www/chitanka/web/content/content-img
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-  cd /var/www/chitanka/web/content/text-info
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-  cd /var/www/chitanka/web/content/text-anno
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-  cd /var/www/chitanka/web/content/book-pic
+  cd /var/www/chitanka/web/content/book-djvu
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
   cd /var/www/chitanka/web/content/book-img
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-  cd /var/www/chitanka/web/content/book-djvu
+  cd /var/www/chitanka/web/content/book-info
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  cd /var/www/chitanka/web/content/book-pdf
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  cd /var/www/chitanka/web/content/book-pic
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  cd /var/www/chitanka/web/content/content-book
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
   cd /var/www/chitanka/web/content/content-cover
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  cd /var/www/chitanka/web/content/content-img
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
   cd /var/www/chitanka/web/content/content-misc
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-  cd /var/www/chitanka/web/content/book-pdf
+  cd /var/www/chitanka/web/content/content-text
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  cd /var/www/chitanka/web/content/content-wiki
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  cd /var/www/chitanka/web/content/text-anno
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  cd /var/www/chitanka/web/content/text-info
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  cd /var/www/chitanka/web/content/user
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
   
 clear
