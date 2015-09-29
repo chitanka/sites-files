@@ -1,5 +1,8 @@
   #!/bin/bash
 
+  cd /var/www/chitanka
+  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  php bin/console auto-update --env=prod --skip-content --skip-src 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
   cd /var/www/chitanka/web/content/book
   git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
   cd /var/www/chitanka/web/content/book-anno
