@@ -1,5 +1,5 @@
   #!/bin/bash
-echo $(date) > /var/www/chitanka/web/update.log
+echo $(date) > /var/www/chitanka/web/manual.log
   cd /var/www/chitanka
 echo "update chitanka" >> /var/www/chitanka/web/manual.log
   git pull 2>>/var/www/chitanka/web/manual.log 1>>/var/www/chitanka/web/manual.log
