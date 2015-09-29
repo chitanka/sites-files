@@ -232,7 +232,7 @@ else
 fi
 
 #sync wiki
-  if [ ! -d /var/www/chitanka/web/content/book/.git ]
+  if [ ! -d /var/www/chitanka/web/content/wiki/.git ]
 then
     git clone --depth=1 https://github.com/chitanka/content-wiki.git /var/www/chitanka/web/content/wiki
 else
