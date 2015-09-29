@@ -1,37 +1,55 @@
   #!/bin/bash
-
+echo $(date) > /var/www/chitanka/web/update.log
   cd /var/www/chitanka
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
-  php bin/console auto-update --env=prod --skip-content --skip-src 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+echo "update chitanka" >> /var/www/chitanka/web/manual.log
+  git pull 2>>/var/www/chitanka/web/manual.log 1>>/var/www/chitanka/web/manual.log
+echo "update database" >> /var/www/chitanka/web/manual.log
+  php bin/console auto-update --env=prod --skip-content --skip-src 2>>/var/www/chitanka/web/manual.log 1>>/var/www/chitanka/web/manual.log
+echo "update book" >> /var/www/chitanka/web/manual.log
   cd /var/www/chitanka/web/content/book
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  git pull 2>>/var/www/chitanka/web/manual.log 1>>/var/www/chitanka/web/manual.log
+echo "update book-anno" >> /var/www/chitanka/web/manual.log
   cd /var/www/chitanka/web/content/book-anno
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  git pull 2>>/var/www/chitanka/web/manual.log 1>>/var/www/chitanka/web/manual.log
+echo "book-cover" >> /var/www/chitanka/web/manual.log
   cd /var/www/chitanka/web/content/book-cover
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  git pull 2>>/var/www/chitanka/web/manual.log 1>>/var/www/chitanka/web/manual.log
+echo "book-djvu" >> /var/www/chitanka/web/manual.log
   cd /var/www/chitanka/web/content/book-djvu
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  git pull 2>>/var/www/chitanka/web/manual.log 1>>/var/www/chitanka/web/manual.log
+echo "book-img" >> /var/www/chitanka/web/manual.log
   cd /var/www/chitanka/web/content/book-img
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  git pull 2>>/var/www/chitanka/web/manual.log 1>>/var/www/chitanka/web/manual.log
+echo "book-info" >> /var/www/chitanka/web/manual.log
   cd /var/www/chitanka/web/content/book-info
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  git pull 2>>/var/www/chitanka/web/manual.log 1>>/var/www/chitanka/web/manual.log
+echo "" >> /var/www/chitanka/web/manual.log
   cd /var/www/chitanka/web/content/book-pdf
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  git pull 2>>/var/www/chitanka/web/manual.log 1>>/var/www/chitanka/web/manual.log
+echo "book-pic" >> /var/www/chitanka/web/manual.log
   cd /var/www/chitanka/web/content/book-pic
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  git pull 2>>/var/www/chitanka/web/manual.log 1>>/var/www/chitanka/web/manual.log
+echo "cover" >> /var/www/chitanka/web/manual.log
   cd /var/www/chitanka/web/content/cover
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  git pull 2>>/var/www/chitanka/web/manual.log 1>>/var/www/chitanka/web/manual.log
+echo "img" >> /var/www/chitanka/web/manual.log
   cd /var/www/chitanka/web/content/img
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  git pull 2>>/var/www/chitanka/web/manual.log 1>>/var/www/chitanka/web/manual.log
+echo "misc" >> /var/www/chitanka/web/manual.log
   cd /var/www/chitanka/web/content/misc
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  git pull 2>>/var/www/chitanka/web/manual.log 1>>/var/www/chitanka/web/manual.log
+echo "text" >> /var/www/chitanka/web/manual.log
   cd /var/www/chitanka/web/content/text
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  git pull 2>>/var/www/chitanka/web/manual.log 1>>/var/www/chitanka/web/manual.log
+echo "text-anno" >> /var/www/chitanka/web/manual.log
   cd /var/www/chitanka/web/content/text-anno
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  git pull 2>>/var/www/chitanka/web/manual.log 1>>/var/www/chitanka/web/manual.log
+echo "text-info" >> /var/www/chitanka/web/manual.log
   cd /var/www/chitanka/web/content/text-info
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  git pull 2>>/var/www/chitanka/web/manual.log 1>>/var/www/chitanka/web/manual.log
+echo "user" >> /var/www/chitanka/web/manual.log
   cd /var/www/chitanka/web/content/user
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  git pull 2>>/var/www/chitanka/web/manual.log 1>>/var/www/chitanka/web/manual.log
+echo "wiki" >> /var/www/chitanka/web/manual.log
   cd /var/www/chitanka/web/content/wiki
-  git pull 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  git pull 2>>/var/www/chitanka/web/manual.log 1>>/var/www/chitanka/web/manual.log
