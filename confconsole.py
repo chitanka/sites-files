@@ -181,6 +181,7 @@ class TurnkeyConsole:
         items.append(("UPDATENOW", "Get latest books"))
         items.append(("Share", "Share content folder in LAN"))
         items.append(("Noshare", "Remove shared content folder"))
+        items.append(("ClearCache", "Clear chitanka cache"))
         items.append(("Clear", "Clear free space"))
 
         return items
@@ -514,6 +515,10 @@ class TurnkeyConsole:
 
     def _adv_noshare(self):
      executil.system("echo REMOVING SHARE...; cp /var/www/noshared /etc/samba/smb.conf > /dev/null 2>&1; service samba restart > /dev/null 2>&1")
+     return "advanced"
+     
+    def _adv_clearcache(self):
+     executil.system("echo Clearing chitanka cache, please wait...; rm -fr /var/www/chitanka/web/cache/*")
      return "advanced"
 
     def _adv_clear(self):
