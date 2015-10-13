@@ -182,7 +182,7 @@ class TurnkeyConsole:
         items.append(("Share", "Share content folder in LAN"))
         items.append(("Noshare", "Remove shared content folder"))
         items.append(("ClearCache", "Clear chitanka cache"))
-        items.append(("Clear", "Clear free space"))
+        items.append(("ClearSpace", "Clear free space"))
 
         return items
 
@@ -521,7 +521,7 @@ class TurnkeyConsole:
      executil.system("echo Clearing chitanka cache, please wait...; rm -fr /var/www/chitanka/web/cache/*")
      return "advanced"
 
-    def _adv_clear(self):
+    def _adv_clearspace(self):
      executil.system("echo Clearing empty space, please wait...; dd if=/dev/zero of=big bs=1M; rm big")
      return "advanced"
 
