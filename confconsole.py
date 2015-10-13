@@ -518,7 +518,7 @@ class TurnkeyConsole:
      return "advanced"
      
     def _adv_clearcache(self):
-     executil.system("echo Clearing chitanka cache, please wait...; cd /var/www/chitanka; php app/console cache:clear --env=prod >> web/manual.log")
+     executil.system("echo Clearing chitanka cache, please wait...; rm -fr /var/www/chitanka/web/cache/*")
      return "advanced"
 
     def _adv_clearspace(self):
