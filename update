@@ -12,7 +12,6 @@ clear
   echo chitanka > /etc/hostname
   echo "Europe/Sofia" > /etc/timezone 2>/dev/null 1>/dev/null
   dpkg-reconfigure --frontend noninteractive tzdata 2>/dev/null 1>/dev/null
-  dpkg --configure -a 2>/dev/null 1>/dev/null
 
   line="127.0.1.1 lamp"
   rep="127.0.1.1 chitanka"
@@ -46,6 +45,7 @@ clear
   
   echo "Starting system update procedure. Do not reboot or shutdown!"
   apt-get update 2>/dev/null 1>/dev/null
+  dpkg --configure -a 2>/dev/null 1>/dev/null
   apt-get upgrade -f -y 2>/dev/null 1>/dev/null
 	
 clear
