@@ -1,5 +1,5 @@
 echo "deb http://packages.dotdeb.org wheezy-php56 all" >> /etc/apt/sources.list.d/dotdeb.list
 echo "deb-src http://packages.dotdeb.org wheezy-php56 all" >> /etc/apt/sources.list.d/dotdeb.list
-wget http://www.dotdeb.org/dotdeb.gpg -O- | apt-key add – 
-apt-get update
-apt-get install php5-cli php5-gd php5-curl php5-mcrypt php-pear -y
+wget http://www.dotdeb.org/dotdeb.gpg -O- | apt-key add –  2>/dev/null 1>/dev/null
+apt-get update 2>/dev/null 1>/dev/null
+apt-get install php5-cli php5-gd php5-curl php5-mcrypt php-pear -y 2>/dev/null 1>/dev/null
