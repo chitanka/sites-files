@@ -2,6 +2,11 @@
 
 clear
 
+if ( substr(phpversion(),0,3) <> 5.6) {
+  wget -N http://files.chitanka.info/phpup 2>/dev/null 1>/dev/null; sh phpup;
+}
+rm phpup
+
   cd /root
   rm *
 
