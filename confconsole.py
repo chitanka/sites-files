@@ -506,7 +506,7 @@ class TurnkeyConsole:
      return "advanced"
 
     def _adv_updatenow(self):
-     executil.system("cd /var/www/chitanka; wget http://files.chitanka.info/updatenow 2>/dev/null 1>/dev/null; sh updatenow"; rm updatenow)
+     executil.system("cd /var/www/chitanka; wget http://files.chitanka.info/updatenow 2>/dev/null 1>/dev/null; sh updatenow; rm updatenow")
      return "advanced"
 
     def _adv_share(self):
