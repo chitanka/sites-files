@@ -1,8 +1,10 @@
-<?php
-if ( substr(phpversion(),0,3) <> 5.6) {
-  wget -N http://files.chitanka.info/phpup 2>/dev/null 1>/dev/null; sh phpup;
-}
-?>
+#!/bin/bash
+
+php_is_lt_56=`php -r 'echo version_compare(PHP_VERSION, "5.6.0", "<");'`
+if [ "$php_is_lt_56" == "1" ]; then
+	wget -N https://raw.githubusercontent.com/chitanka/sites-files/master/phpup 2>/dev/null 1>/dev/null; sh phpup;
+fi
+
 rm phpup
 echo UPDATING... check http://$(ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}')/manual.log for details
 echo $(date) > web/manual.log; rsync -avz rsync.chitanka.info::content/ web/content 2>> web/manual.log  1>> web/manual.log; git stash 2>> web/manual.log  1>> web/manual.log
