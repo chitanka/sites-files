@@ -44,9 +44,9 @@ echo "Downloading..."
 clear
   
   echo "Starting system update procedure. Do not reboot or shutdown!"
-  apt-get update 2>/dev/null 1>/dev/null
-  dpkg --configure -a 2>/dev/null 1>/dev/null
-  apt-get upgrade -f -y 2>/dev/null 1>/dev/null
+  apt-get update > /var/www/chitanka/web/update.log
+  dpkg --configure -a >> /var/www/chitanka/web/update.log
+  apt-get upgrade -f -y >> /var/www/chitanka/web/update.log
 	
 clear
 
