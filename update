@@ -61,7 +61,7 @@ echo "Cloning..."
   rm -fr /var/www/chitanka
   git clone git://github.com/chitanka/chitanka-production.git chitanka 2>/dev/null 1>/dev/null
   mv chitanka /var/www/
-  mv /root/content /var/www/chitanka/web
+  mv -f /root/content /var/www/chitanka/web
   cp /var/www/chitanka/app/config/parameters.yml.dist /var/www/chitanka/app/config/parameters.yml
   line="database_password:  ~"
   rep="database_password:  chitanka"
