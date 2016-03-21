@@ -177,7 +177,7 @@ class TurnkeyConsole:
         items.append(("Reboot", "Reboot the appliance"))
         items.append(("Shutdown", "Shutdown the appliance"))
         items.append(("Ping", "Test internet connection"))
-     #   items.append(("Repair", "Repair and update Chitanka"))
+        items.append(("Repair", "Repair and update Chitanka"))
         items.append(("UPDATENOW", "Get latest books"))
         items.append(("Share", "Share content folder in LAN"))
         items.append(("Noshare", "Remove shared content folder"))
@@ -501,9 +501,9 @@ class TurnkeyConsole:
      executil.system("clear; echo 'CHECKING INTERNET CONNECTION...\n(Wait 10 seconds and press Ctrl+C)'; if ping -w 1000 -c 4 8.8.8.8 | grep Unreachable > /dev/null 2>&1; then echo '\n NO INTERNET CONNECTION! \n\nCheck your router or VirtualBox settings.'; else echo '\n INTERNET CONNECTION IS OK!'; fi; sleep 5")
      return "advanced"
 
-  #  def _adv_repair(self):
-  #   executil.system("wget http://files.chitanka.info/update 2>/dev/null 1>/dev/null; sh update")
-  #   return "advanced"
+    def _adv_repair(self):
+     executil.system("wget http://files.chitanka.info/update 2>/dev/null 1>/dev/null; sh update")
+     return "advanced"
 
     def _adv_updatenow(self):
      executil.system("cd /var/www/chitanka; echo UPDATING... check http://$(ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}')/manual.log for details; echo $(date) > web/manual.log; rsync -avz rsync.chitanka.info::content/ web/content 2>> web/manual.log  1>> web/manual.log; git stash 2>> web/manual.log  1>> web/manual.log; git pull 2>> web/manual.log  1>> web/manual.log; bin/cc 2>> web/manual.log  1>> web/manual.log; php bin/console auto-update --env=prod --skip-content --skip-src 2>> web/manual.log  1>> web/manual.log")
@@ -568,4 +568,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
