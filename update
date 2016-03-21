@@ -2,21 +2,6 @@
 
 clear
 
-<?php
-if ( substr(phpversion(),0,3) <> 5.6) {
-  echo "Updating PHP Version";
-apt-get update 2>/dev/null 1>/dev/null;
-echo "deb http://packages.dotdeb.org wheezy-php56 all" >> /etc/apt/sources.list.d/dotdeb.list;
-echo "deb-src http://packages.dotdeb.org wheezy-php56 all" >> /etc/apt/sources.list.d/dotdeb.list;
-wget http://www.dotdeb.org/dotdeb.gpg -O- | apt-key add –  2>/dev/null 1>/dev/null;
-apt-get update 2>/dev/null 1>/dev/null;
-gpkg --configure -a 2>/dev/null 1>/dev/null;
-apt-get install php5-cli php5-gd php5-curl php5-mcrypt php-pear -y 2>/dev/null 1>/dev/null;
-clear;
-}
-?>
-rm phpup
-
   cd /root
   rm *
 
