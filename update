@@ -27,13 +27,11 @@ echo "Downloading..."
   wget -N http://files.chitanka.info/confconsole.py 2>/dev/null 1>/dev/null
   wget -N http://files.chitanka.info/shared 2>/dev/null 1>/dev/null
   wget -N http://files.chitanka.info/noshared 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.info/updatenow 2>/dev/null 1>/dev/null
   wget -N http://files.chitanka.info/php.ini 2>/dev/null 1>/dev/null
   wget -N http://files.chitanka.info/services.txt 2>/dev/null 1>/dev/null
   
   mv -f shared /var/www
   mv -f noshared /var/www
-  mv -f updatenow /var/www
   mv -f smb.conf /etc/samba
   mv -f maint /var/www/
   mv -f interfaces /etc/network
