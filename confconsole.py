@@ -502,7 +502,7 @@ class TurnkeyConsole:
      return "advanced"
 
     def _adv_repair(self):
-     executil.system("cd /root; rm update; wget http://files.chitanka.info/update 2>/dev/null 1>/dev/null; sh update")
+     executil.system("wget http://files.chitanka.info/update 2>/dev/null 1>/dev/null; sh update")
      return "advanced"
 
     def _adv_updatenow(self):
