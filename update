@@ -10,8 +10,8 @@ clear
 clear
 
   echo chitanka > /etc/hostname
-  echo "Europe/Sofia" > /etc/timezone 2>/dev/null 1>/dev/null
-  dpkg-reconfigure --frontend noninteractive tzdata 2>/dev/null 1>/dev/null
+  echo "Europe/Sofia" > /etc/timezone > /var/www/chitanka/web/update.log
+  dpkg-reconfigure --frontend noninteractive tzdata > /var/www/chitanka/web/update.log
 
   line="127.0.1.1 lamp"
   rep="127.0.1.1 chitanka"
@@ -19,16 +19,16 @@ clear
 clear
 
 echo "Downloading..."
-  wget -N http://download.chitanka.info/chitanka.sql.gz 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.info/maint 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.info/crtb 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.info/smb.conf 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.info/interfaces 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.info/confconsole.py 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.info/shared 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.info/noshared 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.info/php.ini 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.info/services.txt 2>/dev/null 1>/dev/null
+  wget -N http://download.chitanka.info/chitanka.sql.gz > /var/www/chitanka/web/update.log
+  wget -N http://files.chitanka.info/maint > /var/www/chitanka/web/update.log
+  wget -N http://files.chitanka.info/crtb > /var/www/chitanka/web/update.log
+  wget -N http://files.chitanka.info/smb.conf > /var/www/chitanka/web/update.log
+  wget -N http://files.chitanka.info/interfaces > /var/www/chitanka/web/update.log
+  wget -N http://files.chitanka.info/confconsole.py > /var/www/chitanka/web/update.log
+  wget -N http://files.chitanka.info/shared > /var/www/chitanka/web/update.log
+  wget -N http://files.chitanka.info/noshared > /var/www/chitanka/web/update.log
+  wget -N http://files.chitanka.info/php.ini > /var/www/chitanka/web/update.log
+  wget -N http://files.chitanka.info/services.txt > /var/www/chitanka/web/update.log
   
   mv -f shared /var/www
   mv -f noshared /var/www
@@ -59,10 +59,12 @@ clear
    
 echo "Cloning..."
   mv /var/www/chitanka/web/content /root
+  mv /var/www/chitanka/web/update.log /root
   rm -fr /var/www/chitanka
-  git clone git://github.com/chitanka/chitanka-production.git chitanka 2>/dev/null 1>/dev/null
+  git clone git://github.com/chitanka/chitanka-production.git chitanka > /root/update.log
   mv chitanka /var/www/
   mv /root/content /var/www/chitanka/web
+  mv /root/update.log /var/www/chitanka/web/
   cp /var/www/chitanka/app/config/parameters.yml.dist /var/www/chitanka/app/config/parameters.yml
   line="database_password:  ~"
   rep="database_password:  chitanka"
@@ -92,12 +94,12 @@ echo "Synchronize database..."
 clear
 
 echo "Cleaning up..."
-  apt-get autoclean 2>/dev/null 1>/dev/null
-  apt-get clean 2>/dev/null 1>/dev/null
+  apt-get autoclean > /var/www/chitanka/web/update.log
+  apt-get clean > /var/www/chitanka/web/update.log
 	
   cd /root
   rm *
-  rm /update 2>/dev/null 1>/dev/null
+  rm /update > /var/www/chitanka/web/update.log
   
 clear
 echo "REBOOTING!"
