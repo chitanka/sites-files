@@ -36,7 +36,8 @@ echo "Downloading..."
   mv -f maint /var/www/
   mv -f interfaces /etc/network
   mv -f confconsole.py /usr/lib/confconsole
-  mv -f php.ini /etc/php5/apache2/
+  cp -fr php.ini /etc/php5/apache2/
+  mv -f php.ini /etc/php5/cli/
   mv -f services.txt /etc/confconsole
   chmod a+x /usr/lib/confconsole/confconsole.py
   gzip -d -f chitanka.sql.gz
