@@ -2,7 +2,7 @@
 
 clear
 echo $(date) > /var/www/chitanka/web/update.log
-cp /var/www/chitanka
+cd /var/www/chitanka
   git config --global user.email "chitanka@local" 2>/dev/null 1>/dev/null
   git config --global user.name "chitanka" 2>/dev/null 1>/dev/null
 
