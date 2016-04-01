@@ -1,6 +1,7 @@
 #!/bin/bash
 
 clear
+echo $(date) > /var/www/chitanka/web/update.log
 cp /var/www/chitanka
   git config --global user.email "chitanka@local" 2>/dev/null 1>/dev/null
   git config --global user.name "chitanka" 2>/dev/null 1>/dev/null
@@ -81,7 +82,6 @@ echo "Cloning..."
 clear
   
 echo "Synchronize content..."
-echo $(date) > /var/www/chitanka/web/update.log
   rsync -avz --delete rsync.chitanka.info::content/ /var/www/chitanka/web/content 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
   echo $(date -I)/1 > /var/www/chitanka/update/db/.last
   
