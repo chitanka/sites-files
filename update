@@ -2,9 +2,6 @@
 
 clear
 echo $(date) > /var/www/chitanka/web/update.log
-cd /var/www/chitanka
-  git config --global user.email "chitanka@local" 2>/dev/null 1>/dev/null
-  git config --global user.name "chitanka" 2>/dev/null 1>/dev/null
 
   cd /root
   rm *
@@ -64,6 +61,9 @@ clear
 echo "Cloning..."
   # mv /var/www/chitanka/web/content /root
   # rm -fr /var/www/chitanka
+  cd /var/www/chitanka
+  git config --global user.email "chitanka@local" 2>/dev/null 1>/dev/null
+  git config --global user.name "chitanka" 2>/dev/null 1>/dev/null
   git clone git://github.com/chitanka/chitanka-production.git chitanka 2>/dev/null 1>/dev/null
   cp -fr chitanka /var/www/; rm -fr chitanka
   # mv /root/content /var/www/chitanka/web
