@@ -45,9 +45,9 @@ echo "Downloading..."
   
 clear
   
-#  echo "Starting system update procedure. Do not reboot or shutdown!"
-#  apt-get update 2>/dev/null 1>/dev/null
-#  apt-get upgrade -f -y 2>/dev/null 1>/dev/null
+echo "Starting system update procedure. Do not reboot or shutdown!"
+  apt-get update 2>/dev/null 1>/dev/null
+  apt-get upgrade -f -y 2>/dev/null 1>/dev/null
 	
 clear
 
