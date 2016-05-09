@@ -59,10 +59,11 @@ clear
 clear
    
 echo "Cloning..."
-  mv /var/www/chitanka/web/content /root 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  mv /var/www/chitanka/web/content /root
   mv /var/www/chitanka/web/update.log /root 
-  rm -fr /var/www/chitanka 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
+  rm -fr /var/www/chitanka
   git clone git://github.com/chitanka/chitanka-production.git chitanka 2>/dev/null 1>/dev/null
+  mv chitanka /var/www/
   mv /root/content /var/www/chitanka/web/
   mv /root/update.log /var/www/chitanka/web/
   cp /var/www/chitanka/app/config/parameters.yml.dist /var/www/chitanka/app/config/parameters.yml
