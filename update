@@ -63,6 +63,7 @@ echo "Cloning..."
   git clone git://github.com/chitanka/chitanka-production.git chitanka
   mv chitanka /var/www/
   mv /root/content /var/www/chitanka/web/
+  sleep 30
   echo $(date) > /var/www/chitanka/web/update.log
   cp /var/www/chitanka/app/config/parameters.yml.dist /var/www/chitanka/app/config/parameters.yml
   line="database_password:  ~"
