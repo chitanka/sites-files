@@ -53,7 +53,7 @@ clear
   echo "Updating database..."
   echo "UPDATE text set removed_notice=null;" >> /root/chitanka.sql
   echo "UPDATE book set removed_notice=null;" >> /root/chitanka.sql
-  mysql -uroot -pchitanka chitanka < /root/chitanka.sql
+  mysqladmin -uroot -pchitanka chitanka < /root/chitanka.sql
 
 clear
    
