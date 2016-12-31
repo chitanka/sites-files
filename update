@@ -49,11 +49,13 @@ clear
 #  apt-get upgrade -f -y 2>/dev/null 1>/dev/null
 	
 clear
-
+ 
+  mysqladmin -uroot -pchitanka -f drop chitanka;
+  mysqladmin -uroot -pchitanka create chitanka;
   echo "Updating database..."
   echo "UPDATE text set removed_notice=null;" >> /root/chitanka.sql
   echo "UPDATE book set removed_notice=null;" >> /root/chitanka.sql
-  mysqladmin -uroot -pchitanka chitanka < /root/chitanka.sql
+  mysql -uroot -pchitanka chitanka < /root/chitanka.sql
 
 clear
    
