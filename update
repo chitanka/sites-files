@@ -50,8 +50,8 @@ clear
 	
 clear
  
-  mysqladmin -uroot -pchitanka -f drop chitanka;
-  mysqladmin -uroot -pchitanka create chitanka;
+  mysqladmin -uroot -pchitanka -f drop chitanka 2>/dev/null 1>/dev/null;
+  mysqladmin -uroot -pchitanka create chitanka 2>/dev/null 1>/dev/null;
   echo "Updating database..."
   echo "UPDATE text set removed_notice=null;" >> /root/chitanka.sql
   echo "UPDATE book set removed_notice=null;" >> /root/chitanka.sql
