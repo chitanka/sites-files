@@ -12,6 +12,8 @@ clear
   echo chitanka > /etc/hostname
   echo "Europe/Sofia" > /etc/timezone 2>/dev/null 1>/dev/null
   dpkg-reconfigure --frontend noninteractive tzdata 2>/dev/null 1>/dev/null
+  git config --global user.email "chitanka@local"
+  git config --global user.name "chitanka"
 
   line="127.0.1.1 lamp"
   rep="127.0.1.1 chitanka"
