@@ -169,18 +169,15 @@ class TurnkeyConsole:
 
     def _get_advmenu(self):
         items = []
-        items.append(("Networking", "Configure appliance networking"))
 
-        if self.installer.available:
-            items.append(("Install", "Install to hard disk"))
-
+        items.append(("UPDATENOW", "Get latest books"))
+        items.append(("Repair", "Repair and update Chitanka"))        
         items.append(("Reboot", "Reboot the appliance"))
         items.append(("Shutdown", "Shutdown the appliance"))
-        items.append(("Ping", "Test internet connection"))
-        items.append(("Repair", "Repair and update Chitanka"))
-        items.append(("UPDATENOW", "Get latest books"))
         items.append(("Share", "Share content folder in LAN"))
         items.append(("Noshare", "Remove shared content folder"))
+        items.append(("Networking", "Configure appliance networking"))        
+        items.append(("Ping", "Test internet connection"))
         items.append(("ClearCache", "Clear chitanka cache"))
         items.append(("ClearSpace", "Clear free space"))
 
