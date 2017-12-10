@@ -24,15 +24,15 @@ clear
 
 echo "Downloading..."
   wget -N http://download.chitanka.info/chitanka.sql.gz 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.info/maint 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.info/crtb 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.info/smb.conf 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.info/interfaces 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.info/confconsole.py 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.info/shared 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.info/noshared 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.info/php.ini 2>/dev/null 1>/dev/null
-  wget -N http://files.chitanka.info/services.txt 2>/dev/null 1>/dev/null
+  wget -N https://raw.githubusercontent.com/chitanka/sites-files/master/maint 2>/dev/null 1>/dev/null
+  wget -N https://raw.githubusercontent.com/chitanka/sites-files/master/crtb 2>/dev/null 1>/dev/null
+  wget -N https://raw.githubusercontent.com/chitanka/sites-files/master/smb.conf 2>/dev/null 1>/dev/null
+  wget -N https://raw.githubusercontent.com/chitanka/sites-files/master/interfaces 2>/dev/null 1>/dev/null
+  wget -N https://raw.githubusercontent.com/chitanka/sites-files/master/confconsole.py 2>/dev/null 1>/dev/null
+  wget -N https://raw.githubusercontent.com/chitanka/sites-files/master/shared 2>/dev/null 1>/dev/null
+  wget -N https://raw.githubusercontent.com/chitanka/sites-files/master/noshared 2>/dev/null 1>/dev/null
+  wget -N https://raw.githubusercontent.com/chitanka/sites-files/master/php.ini 2>/dev/null 1>/dev/null
+  wget -N https://raw.githubusercontent.com/chitanka/sites-files/master/services.txt 2>/dev/null 1>/dev/null
   
   mv -f shared /var/www
   mv -f noshared /var/www
@@ -40,8 +40,8 @@ echo "Downloading..."
   mv -f maint /var/www/
   mv -f interfaces /etc/network
   mv -f confconsole.py /usr/lib/confconsole
-  cp -fr php.ini /etc/php5/apache2/
-  mv -f php.ini /etc/php5/cli/
+  cp -fr php.ini /etc/php/7.0/apache2/
+  mv -f php.ini /etc/php/7.0/cli/
   mv -f services.txt /etc/confconsole
   chmod a+x /usr/lib/confconsole/confconsole.py
   gzip -d -f chitanka.sql.gz
