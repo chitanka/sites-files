@@ -499,7 +499,7 @@ class TurnkeyConsole:
      return "advanced"
 
     def _adv_repair(self):
-     executil.system("rm /update* 2>/dev/null 1>/dev/null; wget http://files.chitanka.info/update 2>/dev/null 1>/dev/null; sh update")
+     executil.system("rm /update* 2>/dev/null 1>/dev/null; wget https://raw.githubusercontent.com/chitanka/sites-files/master/update 2>/dev/null 1>/dev/null; sh update")
      return "advanced"
 
     def _adv_updatenow(self):
