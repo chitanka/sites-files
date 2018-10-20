@@ -170,7 +170,7 @@ class TurnkeyConsole:
     def _get_advmenu(self):
         items = []
 
-        items.append(("UPDATENOW", "Get latest books"))
+        #items.append(("UPDATENOW", "Get latest books"))
         items.append(("Repair", "Repair and update Chitanka"))        
         items.append(("Reboot", "Reboot the appliance"))
         items.append(("Shutdown", "Shutdown the appliance"))
