@@ -210,10 +210,10 @@ class TurnkeyConsole:
         menu.append(("DHCP", "Configure networking automatically"))
         menu.append(("StaticIP", "Configure networking manually"))
 
-        if not ifname == self._get_default_nic() and \
-           len(self._get_filtered_ifnames()) > 1 and \
-           ifutil.get_ipconf(ifname)[0] is not None:
-            menu.append(("Default", "Show this adapter's IP address in Usage"))
+        #if not ifname == self._get_default_nic() and \
+         #  len(self._get_filtered_ifnames()) > 1 and \
+          # ifutil.get_ipconf(ifname)[0] is not None:
+           # menu.append(("Default", "Show this adapter's IP address in Usage"))
 
         return menu
 
