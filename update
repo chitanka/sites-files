@@ -85,13 +85,13 @@ echo "Cloning..."
 
 clear
   
-echo "Synchronize content..."
+echo "Synchronizing content..."
   rsync -avz --delete rsync.chitanka.info::content/ /var/www/chitanka/web/content 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
   echo $(date -I)/1 > /var/www/chitanka/update/db/.last
   
 clear
   
-echo "Synchronize database..."
+echo "Synchronizing database..."
   cd /var/www/chitanka; php bin/console auto-update --env=prod --skip-content --skip-src 2>>/var/www/chitanka/web/update.log 1>>/var/www/chitanka/web/update.log
 
 # echo Setting up crontab...
