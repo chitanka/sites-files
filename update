@@ -2,6 +2,7 @@
 
 clear
 
+  mkdir -p /var/www/chitanka
   cd /root
   rm *
 
