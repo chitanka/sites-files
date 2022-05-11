@@ -66,7 +66,7 @@ clear
 echo "Cloning..."
   mv /var/www/chitanka/web/content /root 2>/dev/null 1>/dev/null
   rm -fr /var/www/chitanka
-  git clone git://github.com/chitanka/chitanka-production.git chitanka 2>/dev/null 1>/dev/null
+  git clone https://github.com/chitanka/chitanka-production.git chitanka 2>/dev/null 1>/dev/null
   rm -fr chitanka/web/content
   mv chitanka /var/www/
   mv /root/content /var/www/chitanka/web/
