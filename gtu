@@ -13,7 +13,7 @@ clear
   a2enmod expires
   a2enmod headers
   apt-get update
-  apt-get install -o Dpkg::Options::="--force-confold" --force-yes -y php5-curl php5-xsl php5-gd
+  apt-get install -o Dpkg::Options::="--force-confold" --force-yes -y php5-curl php5-xsl php5-gd php5-intl php5-xml php5-zip
   echo chitanka > /etc/hostname
   echo "Europe/Sofia" > /etc/timezone
   dpkg-reconfigure --frontend noninteractive tzdata
