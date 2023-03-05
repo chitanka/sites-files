@@ -2,18 +2,18 @@
 
 clear
 
-  mkdir -p /var/www/chitanka
+  # mkdir -p /var/www/chitanka
   cd /root
   rm *
 
-  crontab -u root -r
+  # crontab -u root -r
   
 clear
 
   echo chitanka > /etc/hostname
   echo "Europe/Sofia" > /etc/timezone 2>/dev/null 1>/dev/null
   dpkg-reconfigure --frontend noninteractive tzdata 2>/dev/null 1>/dev/null
-  cd /var/www/chitanka
+  # cd /var/www/chitanka
   # git config --global user.email "chitanka@local"
   # git config --global user.name "chitanka"
   cd /root
@@ -47,7 +47,7 @@ echo "Downloading..."
   chmod a+x /usr/lib/confconsole/confconsole.py
   gzip -d -f chitanka.sql.gz
   
-clear
+# clear
   
 # echo "Starting system update procedure. Do not reboot or shutdown!"
 #  apt-get update 2>/dev/null 1>/dev/null
@@ -55,9 +55,9 @@ clear
 	
 clear
  
+  echo "Updating database..."
   mysqladmin -uroot -pchitanka -f drop chitanka 2>/dev/null 1>/dev/null;
   mysqladmin -uroot -pchitanka create chitanka 2>/dev/null 1>/dev/null;
-  echo "Updating database..."
   echo "UPDATE text set removed_notice=null;" >> /root/chitanka.sql
   echo "UPDATE book set removed_notice=null;" >> /root/chitanka.sql
   mysql -uroot -pchitanka chitanka < /root/chitanka.sql
